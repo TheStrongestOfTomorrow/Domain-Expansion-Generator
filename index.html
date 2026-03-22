@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Expansion Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-ring"></div>
+        <p class="loader-text">準備中...</p>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app">
+        <!-- Input Screen -->
+        <div id="input-screen" class="screen active">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="kanji">領域展開</span>
+                    <span class="english">DOMAIN EXPANSION</span>
+                </h1>
+                <p class="subtitle">Create Your Own Cursed Technique</p>
+            </div>
+
+            <div class="input-container">
+                <label for="domain-name">Name Your Domain</label>
+                <input type="text" id="domain-name" placeholder="e.g., Infinite Void" maxlength="50">
+                
+                <label for="domain-type">Select Domain Type</label>
+                <div class="type-selector">
+                    <button class="type-btn active" data-type="void">
+                        <span class="type-icon">⚫</span>
+                        <span class="type-name">Void</span>
+                    </button>
+                    <button class="type-btn" data-type="flame">
+                        <span class="type-icon">🔥</span>
+                        <span class="type-name">Flame</span>
+                    </button>
+                    <button class="type-btn" data-type="ice">
+                        <span class="type-icon">❄️</span>
+                        <span class="type-name">Ice</span>
+                    </button>
+                    <button class="type-btn" data-type="shadow">
+                        <span class="type-icon">🌑</span>
+                        <span class="type-name">Shadow</span>
+                    </button>
+                    <button class="type-btn" data-type="lightning">
+                        <span class="type-icon">⚡</span>
+                        <span class="type-name">Lightning</span>
+                    </button>
+                    <button class="type-btn" data-type="cosmic">
+                        <span class="type-icon">🌌</span>
+                        <span class="type-name">Cosmic</span>
+                    </button>
+                </div>
+
+                <button id="expand-btn" class="expand-button">
+                    <span class="btn-text">EXPAND</span>
+                    <span class="btn-kanji">展開</span>
+                </button>
+            </div>
+
+            <div class="examples">
+                <p class="examples-title">Famous Examples:</p>
+                <div class="example-tags">
+                    <span class="tag" data-name="Infinite Void" data-type="void">無量空処</span>
+                    <span class="tag" data-name="Malevolent Shrine" data-type="shadow">伏魔御廚子</span>
+                    <span class="tag" data-name="Coffin of Iron Mountain" data-type="flame">鉄棺陵</span>
+                    <span class="tag" data-name="Horizon of the Captivating Skandha" data-type="ice">饕餮玉藻</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Domain Expansion Screen -->
+        <div id="expansion-screen" class="screen">
+            <div class="domain-container">
+                <!-- Particle Canvas -->
+                <canvas id="particle-canvas"></canvas>
+                
+                <!-- Kanji Rain -->
+                <div id="kanji-rain"></div>
+                
+                <!-- Central Domain Symbol -->
+                <div class="domain-symbol">
+                    <div class="symbol-ring outer"></div>
+                    <div class="symbol-ring middle"></div>
+                    <div class="symbol-ring inner"></div>
+                    <div class="symbol-core"></div>
+                </div>
+
+                <!-- Domain Name Display -->
+                <div class="domain-name-display">
+                    <span class="domain-kanji" id="display-kanji"></span>
+                    <span class="domain-name" id="display-name"></span>
+                </div>
+
+                <!-- Hand Sign Animation -->
+                <div class="hand-sign">
+                    <div class="finger"></div>
+                    <div class="finger"></div>
+                    <div class="finger"></div>
+                </div>
+
+                <!-- Cursed Energy Waves -->
+                <div class="energy-waves">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </div>
+
+            <!-- Exit Button -->
+            <button id="exit-btn" class="exit-button">
+                <span>Exit Domain</span>
+                <span class="exit-kanji">解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="expand-sound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2995/2995-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
