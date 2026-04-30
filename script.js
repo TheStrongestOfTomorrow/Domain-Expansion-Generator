@@ -4,7 +4,7 @@
  */
 
 // Kanji characters for the rain effect
-const KANJI_CHARS = '領域展開術式呪力呪靈境界結界無量空処伏魔御廚子鉄棺陵饕餮玉藻死神極番龍脳天逆鉾';
+const KANJI_CHARS = "領域展開術式呪力呪靈境界結界無量空処伏魔御廚子鉄棺陵饕餮玉藻死神極番龍脳天逆鉾黒閃式神反転術式黒鳥操術十種影法術不義遊戯天与呪縛芻霊呪法赤鱗躍動";
 const KANJI_ARRAY = KANJI_CHARS.split('');
 
 // Domain type configurations
@@ -48,6 +48,102 @@ const DOMAIN_TYPES = {
         particleColor: 'rgba(253, 224, 71, 0.8)',
         waveColor: 'rgba(251, 191, 36, 0.3)',
         kanjiColor: 'rgba(251, 191, 36, 0.6)'
+    },
+        blood: {
+        primary: '#1a0505',
+        secondary: '#991b1b',
+        accent: '#f87171',
+        particleColor: 'rgba(248, 113, 113, 0.8)',
+        waveColor: 'rgba(153, 27, 27, 0.3)',
+        kanjiColor: 'rgba(248, 113, 113, 0.6)'
+    },
+    nature: {
+        primary: '#064e3b',
+        secondary: '#059669',
+        accent: '#34d399',
+        particleColor: 'rgba(52, 211, 153, 0.8)',
+        waveColor: 'rgba(5, 150, 105, 0.3)',
+        kanjiColor: 'rgba(52, 211, 153, 0.6)'
+    },
+    soul: {
+        primary: '#1e1b4b',
+        secondary: '#4338ca',
+        accent: '#818cf8',
+        particleColor: 'rgba(129, 140, 248, 0.8)',
+        waveColor: 'rgba(67, 56, 202, 0.3)',
+        kanjiColor: 'rgba(129, 140, 248, 0.6)'
+    },
+    poison: {
+        primary: '#1e1b4b',
+        secondary: '#7e22ce',
+        accent: '#d8b4fe',
+        particleColor: 'rgba(216, 180, 254, 0.8)',
+        waveColor: 'rgba(126, 34, 206, 0.3)',
+        kanjiColor: 'rgba(216, 180, 254, 0.6)'
+    },
+    time: {
+        primary: '#0f172a',
+        secondary: '#334155',
+        accent: '#94a3b8',
+        particleColor: 'rgba(148, 163, 184, 0.8)',
+        waveColor: 'rgba(51, 65, 81, 0.3)',
+        kanjiColor: 'rgba(148, 163, 184, 0.6)'
+    },
+        abyss: {
+        primary: '#020617',
+        secondary: '#1e293b',
+        accent: '#334155',
+        particleColor: 'rgba(51, 65, 81, 0.8)',
+        waveColor: 'rgba(30, 41, 59, 0.3)',
+        kanjiColor: 'rgba(51, 65, 81, 0.6)'
+    },
+    gravity: {
+        primary: '#2e1065',
+        secondary: '#5b21b6',
+        accent: '#c084fc',
+        particleColor: 'rgba(192, 132, 252, 0.8)',
+        waveColor: 'rgba(91, 33, 182, 0.3)',
+        kanjiColor: 'rgba(192, 132, 252, 0.6)'
+    },
+    moonlight: {
+        primary: '#0c4a6e',
+        secondary: '#0ea5e9',
+        accent: '#bae6fd',
+        particleColor: 'rgba(186, 230, 253, 0.8)',
+        waveColor: 'rgba(14, 165, 233, 0.3)',
+        kanjiColor: 'rgba(186, 230, 253, 0.6)'
+    },
+    sun: {
+        primary: '#450a0a',
+        secondary: '#b91c1c',
+        accent: '#fde047',
+        particleColor: 'rgba(253, 224, 71, 0.8)',
+        waveColor: 'rgba(185, 28, 28, 0.3)',
+        kanjiColor: 'rgba(253, 224, 71, 0.6)'
+    },
+    chaos: {
+        primary: '#450a0a',
+        secondary: '#7c2d12',
+        accent: '#f97316',
+        particleColor: 'rgba(249, 115, 22, 0.8)',
+        waveColor: 'rgba(124, 45, 18, 0.3)',
+        kanjiColor: 'rgba(249, 115, 22, 0.6)'
+    },
+    order: {
+        primary: '#064e3b',
+        secondary: '#0f766e',
+        accent: '#5eead4',
+        particleColor: 'rgba(94, 234, 212, 0.8)',
+        waveColor: 'rgba(15, 118, 110, 0.3)',
+        kanjiColor: 'rgba(94, 234, 212, 0.6)'
+    },
+    zen: {
+        primary: '#1c1917',
+        secondary: '#a8a29e',
+        accent: '#f5f5f4',
+        particleColor: 'rgba(245, 245, 244, 0.8)',
+        waveColor: 'rgba(168, 162, 158, 0.3)',
+        kanjiColor: 'rgba(245, 245, 244, 0.6)'
     },
     cosmic: {
         primary: '#0a0612',
@@ -169,11 +265,70 @@ function generateKanji(name) {
         'life': '命',
         'soul': '魂',
         'mind': '心',
-        'spirit': '霊'
+        'spirit': '霊',
+        'cursed': '呪',
+        'technique': '術',
+        'energy': '力',
+        'spirit': '靈',
+        'bound': '縛',
+        'flash': '閃',
+        'black': '黒',
+        'reverse': '反転',
+        'shikigami': '式神',
+        'ten': '十',
+        'shadows': '影',
+        'ratio': '比率',
+        'idle': '無為',
+        'transfiguration': '転変',
+        'disaster': '災',
+        'plague': '疫',
+        'rot': '腐',
+        'manipulation': '操術',
+        'projection': '投射',
+        'miracle': '奇跡',
+        'contract': '契約',
+        'jackpot': '大当り',
+        'gamble': '賭',
+        'fever': '熱',
+        'hype': '興奮',
+        'stage': '舞台',
+        'audience': '観客',
+        'limitless': '無下限',
+        'six': '六',
+        'eyes': '眼',
+        'divergent': '径庭',
+        'fist': '拳',
+        'judgment': '裁判',
+        'execution': '処刑',
+        'malice': '悪意',
+        'suffering': '苦',
+        'radiance': '輝',
+        'gravity': '重力',
+        'blessing': '福',
+        'covenant': '盟',
+        'binding': '縛',
+        'vow': '誓',
+        'heavenly': '天',
+        'restriction': '与',
+        'output': '出力',
+        'spark': '火花',
+        'chant': '詠唱',
+        'sorcerer': '術師',
+        'king': '王',
+        'queen': '女王',
+        'fallen': '堕',
+        'plasma': '星漿',
+        'vessel': '体',
+        'complication': '複',
+        'nature': '自然',
+        'plague': '疫',
+        'rot': '腐',
     };
 
-    let kanji = '';
-    const words = name.toLowerCase().split(' ');
+    if (!name || name.trim() === "") return "領域展開";
+
+    let kanji = "";
+    const words = name.toLowerCase().trim().split(/\s+/);
 
     words.forEach(word => {
         if (wordMap[word]) {
@@ -184,7 +339,7 @@ function generateKanji(name) {
         }
     });
 
-    return kanji || '領域展開';
+    return kanji;
 }
 
 // Expand button
@@ -207,6 +362,15 @@ function startExpansion(name) {
     const sound = document.getElementById('expand-sound');
     sound.currentTime = 0;
     sound.play().catch(() => {});
+
+    // Cursed Overlay Effect
+    const overlay = document.getElementById('cursed-overlay');
+    overlay.classList.add('active');
+    setTimeout(() => overlay.classList.remove('active'), 1500);
+
+    // Screen Shake
+    expansionScreen.classList.add('shake-screen');
+    setTimeout(() => expansionScreen.classList.remove('shake-screen'), 500);
 
     // Update display
     displayName.textContent = name.toUpperCase();
@@ -338,30 +502,38 @@ function startParticles() {
 // Animate particles
 function animateParticles() {
     const colors = DOMAIN_TYPES[currentType];
-    ctx.fillStyle = `rgba(0, 0, 0, 0.1)`;
+    ctx.fillStyle = `rgba(0, 0, 0, 0.15)`;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(particle => {
         particle.update();
         particle.draw();
+        particle.connections = 0;
     });
 
-    // Draw connections
-    particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
+    for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            if (p1.connections >= 3 || p2.connections >= 3) continue;
+
             const dx = p1.x - p2.x;
             const dy = p1.y - p2.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const distSq = dx * dx + dy * dy;
 
-            if (distance < 100) {
+            if (distSq < 10000) {
+                const distance = Math.sqrt(distSq);
+                p1.connections++;
+                p2.connections++;
                 ctx.beginPath();
                 ctx.moveTo(p1.x, p1.y);
                 ctx.lineTo(p2.x, p2.y);
                 ctx.strokeStyle = colors.waveColor.replace('0.3', (0.2 * (1 - distance / 100)).toString());
+                ctx.lineWidth = 1;
                 ctx.stroke();
             }
-        });
-    });
+        }
+    }
 
     animationId = requestAnimationFrame(animateParticles);
 }
@@ -369,8 +541,11 @@ function animateParticles() {
 // Kanji rain
 function startKanjiRain() {
     const colors = DOMAIN_TYPES[currentType];
+    const MAX_KANJI = 40;
 
     kanjiInterval = setInterval(() => {
+        if (kanjiRain.childElementCount >= MAX_KANJI) return;
+
         const kanji = document.createElement('div');
         kanji.className = 'kanji-particle';
         kanji.textContent = KANJI_ARRAY[Math.floor(Math.random() * KANJI_ARRAY.length)];
@@ -383,9 +558,11 @@ function startKanjiRain() {
 
         // Remove after animation
         setTimeout(() => {
-            kanji.remove();
+            if (kanji.parentNode === kanjiRain) {
+                kanji.remove();
+            }
         }, 5000);
-    }, 100);
+    }, 150);
 }
 
 // Touch support for mobile
