@@ -744,3 +744,256 @@ body {
     0% { transform: rotate(0deg) scaleY(1); filter: hue-rotate(0deg); }
     100% { transform: rotate(15deg) scaleY(1.1); filter: hue-rotate(90deg); }
 }
+
+/* Domain Environments */
+.env-void {
+    background: radial-gradient(circle at center, #1a0a2e 0%, #000 100%) !important;
+}
+.env-void::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px);
+    background-size: 50px 50px;
+    animation: starsRotate 100s linear infinite;
+    opacity: 0.3;
+}
+@keyframes starsRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.env-flame {
+    background: linear-gradient(to top, #450a0a, #000) !important;
+}
+.env-flame::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    filter: invert(1) opacity(0.1);
+    mix-blend-mode: overlay;
+}
+
+.env-blood {
+    background: radial-gradient(circle, #7f1d1d 0%, #000 100%) !important;
+}
+.env-blood::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-radial-gradient(circle at 50% 50%, rgba(255,0,0,0.1), rgba(0,0,0,0) 10%);
+    animation: ripple 5s linear infinite;
+}
+@keyframes ripple {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(2); opacity: 0; }
+}
+
+.env-shadow {
+    background: #000 !important;
+}
+.env-shadow::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.05) 50%, transparent 55%);
+    background-size: 200% 200%;
+    animation: shadowSweep 10s linear infinite;
+}
+@keyframes shadowSweep {
+    0% { background-position: -100% -100%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Barrier Veil Effect */
+.expanding {
+    border: 5px solid var(--accent);
+    box-shadow: inset 0 0 100px var(--secondary), 0 0 50px var(--accent);
+}
+
+/* Technique Symbols (Decorative) */
+.technique-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15rem;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+    font-weight: 900;
+    color: var(--accent);
+    filter: blur(5px);
+}
+
+.env-lightning {
+    background: #0f0a1a !important;
+}
+.env-lightning::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    animation: lightningFlash 4s ease-out infinite;
+}
+@keyframes lightningFlash {
+    0%, 90%, 95%, 100% { opacity: 0; }
+    92%, 97% { opacity: 0.2; }
+}
+
+.env-ice {
+    background: radial-gradient(circle at center, #0a1628 0%, #000 100%) !important;
+}
+.env-ice::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/frozen-wall.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.env-nature {
+    background: linear-gradient(135deg, #064e3b 0%, #000 100%) !important;
+}
+
+.env-gravity {
+    background: #2e1065 !important;
+}
+.env-gravity .domain-container {
+    animation: gravityWarp 10s ease-in-out infinite alternate;
+}
+@keyframes gravityWarp {
+    from { transform: perspective(1000px) rotateX(0deg); }
+    to { transform: perspective(1000px) rotateX(5deg) scale(1.05); }
+}
+
+/* JJK Veil Effect */
+.veil-closing {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: #000;
+    border-radius: 50%;
+    z-index: 999;
+    pointer-events: none;
+    box-shadow: 0 0 100px #000;
+    animation: closeVeil 1.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+@keyframes closeVeil {
+    0% { width: 300vmax; height: 300vmax; opacity: 0; }
+    50% { width: 300vmax; height: 300vmax; opacity: 1; }
+    100% { width: 0; height: 0; opacity: 0; }
+}
+
+/* Environment Objects */
+.env-zen::before {
+    content: '🌸';
+    position: absolute;
+    font-size: 2rem;
+    animation: petals 10s linear infinite;
+    top: -50px;
+    left: 10%;
+    opacity: 0.5;
+}
+
+@keyframes petals {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.env-shadow .domain-container::after {
+    content: '🖐️';
+    position: absolute;
+    bottom: -20px;
+    left: 20%;
+    font-size: 10rem;
+    filter: brightness(0) blur(2px);
+    opacity: 0.2;
+    animation: handsReach 5s ease-in-out infinite alternate;
+}
+
+@keyframes handsReach {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50px) scale(1.1); }
+}
+
+.env-blood .domain-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/blood-splatter.png');
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.env-infinity .domain-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from 0deg, #000 0deg 10deg, #111 10deg 20deg);
+    opacity: 0.1;
+    animation: infinityRotate 60s linear infinite;
+}
+
+@keyframes infinityRotate {
+    to { transform: rotate(360deg); }
+}
+
+/* Cursed Energy Wisps */
+.wisp {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    filter: blur(20px);
+    border-radius: 50%;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Screen Crack Effect */
+.screen-crack {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1001;
+    background: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png'); /* Mock crack */
+    opacity: 0;
+}
+
+.screen-crack.active {
+    animation: crackFlash 0.2s forwards;
+    background: radial-gradient(circle, transparent 20%, #000 100%),
+                repeating-linear-gradient(45deg, transparent 0%, transparent 10%, #fff 11%, transparent 12%);
+    opacity: 0.3;
+}
+
+@keyframes crackFlash {
+    0% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.3; }
+}
