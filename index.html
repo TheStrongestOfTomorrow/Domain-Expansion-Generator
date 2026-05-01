@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="screen-crack" class="screen-crack"></div>
     <div id="cursed-overlay" class="cursed-overlay"></div>
     <!-- Preloader -->
     <div id="preloader">
@@ -101,6 +102,46 @@
                         <span class="type-icon">⛩️</span>
                         <span class="type-name">Zen</span>
                     </button>
+                                        <button class="type-btn" data-type="infinity">
+                        <span class="type-icon">♾️</span>
+                        <span class="type-name">Infinity</span>
+                    </button>
+                    <button class="type-btn" data-type="zero">
+                        <span class="type-icon">0️⃣</span>
+                        <span class="type-name">Zero</span>
+                    </button>
+                    <button class="type-btn" data-type="decay">
+                        <span class="type-icon">💀</span>
+                        <span class="type-name">Decay</span>
+                    </button>
+                    <button class="type-btn" data-type="growth">
+                        <span class="type-icon">🌱</span>
+                        <span class="type-name">Growth</span>
+                    </button>
+                    <button class="type-btn" data-type="mirror">
+                        <span class="type-icon">🪞</span>
+                        <span class="type-name">Mirror</span>
+                    </button>
+                    <button class="type-btn" data-type="glass">
+                        <span class="type-icon">💎</span>
+                        <span class="type-name">Glass</span>
+                    </button>
+                    <button class="type-btn" data-type="sound">
+                        <span class="type-icon">🔊</span>
+                        <span class="type-name">Sound</span>
+                    </button>
+                    <button class="type-btn" data-type="vibration">
+                        <span class="type-icon">📳</span>
+                        <span class="type-name">Vibration</span>
+                    </button>
+                    <button class="type-btn" data-type="magnetism">
+                        <span class="type-icon">🧲</span>
+                        <span class="type-name">Magnetism</span>
+                    </button>
+                    <button class="type-btn" data-type="radiation">
+                        <span class="type-icon">☢️</span>
+                        <span class="type-name">Radiation</span>
+                    </button>
                     <button class="type-btn" data-type="cosmic">
                         <span class="type-icon">🌌</span>
                         <span class="type-name">Cosmic</span>
@@ -120,6 +161,10 @@
                     <span class="tag" data-name="Malevolent Shrine" data-type="shadow">伏魔御廚子</span>
                     <span class="tag" data-name="Coffin of Iron Mountain" data-type="flame">鉄棺陵</span>
                     <span class="tag" data-name="Horizon of the Captivating Skandha" data-type="ice">饕餮玉藻</span>
+                    <span class="tag" data-name="Chimera Shadow Garden" data-type="shadow">嵌合暗翳庭</span>
+                    <span class="tag" data-name="Self-Embodiment of Perfection" data-type="soul">自閉円頓裹</span>
+                    <span class="tag" data-name="Idle Transfiguration" data-type="soul">無為転変</span>
+                    <span class="tag" data-name="Deadly Sentencing" data-type="order">誅伏賜死</span>
                 </div>
             </div>
         </div>
@@ -127,6 +172,7 @@
         <!-- Domain Expansion Screen -->
         <div id="expansion-screen" class="screen">
             <div class="domain-container">
+                <div id="technique-mark" class="technique-mark"></div>
                 <!-- Particle Canvas -->
                 <canvas id="particle-canvas"></canvas>
                 

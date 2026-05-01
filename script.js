@@ -10,6 +10,7 @@ const KANJI_ARRAY = KANJI_CHARS.split('');
 // Domain type configurations
 const DOMAIN_TYPES = {
     void: {
+        envClass: "env-void",
         primary: '#1a0a2e',
         secondary: '#7c3aed',
         accent: '#a855f7',
@@ -18,6 +19,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(168, 85, 247, 0.6)'
     },
     flame: {
+        envClass: "env-flame",
         primary: '#1a0505',
         secondary: '#dc2626',
         accent: '#f97316',
@@ -26,6 +28,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(249, 115, 22, 0.6)'
     },
     ice: {
+        envClass: "env-ice",
         primary: '#0a1628',
         secondary: '#0ea5e9',
         accent: '#67e8f9',
@@ -34,6 +37,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(103, 232, 249, 0.6)'
     },
     shadow: {
+        envClass: "env-shadow",
         primary: '#0a0a0a',
         secondary: '#374151',
         accent: '#6b7280',
@@ -42,6 +46,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(107, 114, 128, 0.6)'
     },
     lightning: {
+        envClass: "env-lightning",
         primary: '#0f0a1a',
         secondary: '#fbbf24',
         accent: '#fde047',
@@ -50,6 +55,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(251, 191, 36, 0.6)'
     },
         blood: {
+        envClass: "env-blood",
         primary: '#1a0505',
         secondary: '#991b1b',
         accent: '#f87171',
@@ -58,6 +64,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(248, 113, 113, 0.6)'
     },
     nature: {
+        envClass: "env-nature",
         primary: '#064e3b',
         secondary: '#059669',
         accent: '#34d399',
@@ -66,6 +73,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(52, 211, 153, 0.6)'
     },
     soul: {
+        envClass: "env-soul",
         primary: '#1e1b4b',
         secondary: '#4338ca',
         accent: '#818cf8',
@@ -74,6 +82,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(129, 140, 248, 0.6)'
     },
     poison: {
+        envClass: "env-poison",
         primary: '#1e1b4b',
         secondary: '#7e22ce',
         accent: '#d8b4fe',
@@ -82,6 +91,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(216, 180, 254, 0.6)'
     },
     time: {
+        envClass: "env-time",
         primary: '#0f172a',
         secondary: '#334155',
         accent: '#94a3b8',
@@ -90,6 +100,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(148, 163, 184, 0.6)'
     },
         abyss: {
+        envClass: "env-abyss",
         primary: '#020617',
         secondary: '#1e293b',
         accent: '#334155',
@@ -98,6 +109,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(51, 65, 81, 0.6)'
     },
     gravity: {
+        envClass: "env-gravity",
         primary: '#2e1065',
         secondary: '#5b21b6',
         accent: '#c084fc',
@@ -106,6 +118,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(192, 132, 252, 0.6)'
     },
     moonlight: {
+        envClass: "env-moonlight",
         primary: '#0c4a6e',
         secondary: '#0ea5e9',
         accent: '#bae6fd',
@@ -114,6 +127,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(186, 230, 253, 0.6)'
     },
     sun: {
+        envClass: "env-sun",
         primary: '#450a0a',
         secondary: '#b91c1c',
         accent: '#fde047',
@@ -122,6 +136,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(253, 224, 71, 0.6)'
     },
     chaos: {
+        envClass: "env-chaos",
         primary: '#450a0a',
         secondary: '#7c2d12',
         accent: '#f97316',
@@ -130,6 +145,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(249, 115, 22, 0.6)'
     },
     order: {
+        envClass: "env-order",
         primary: '#064e3b',
         secondary: '#0f766e',
         accent: '#5eead4',
@@ -138,6 +154,7 @@ const DOMAIN_TYPES = {
         kanjiColor: 'rgba(94, 234, 212, 0.6)'
     },
     zen: {
+        envClass: "env-zen",
         primary: '#1c1917',
         secondary: '#a8a29e',
         accent: '#f5f5f4',
@@ -145,7 +162,98 @@ const DOMAIN_TYPES = {
         waveColor: 'rgba(168, 162, 158, 0.3)',
         kanjiColor: 'rgba(245, 245, 244, 0.6)'
     },
+        infinity: {
+        envClass: 'env-infinity',
+        primary: '#f8fafc',
+        secondary: '#64748b',
+        accent: '#0f172a',
+        particleColor: 'rgba(15, 23, 42, 0.8)',
+        waveColor: 'rgba(100, 116, 139, 0.3)',
+        kanjiColor: 'rgba(15, 23, 42, 0.6)'
+    },
+    zero: {
+        envClass: 'env-zero',
+        primary: '#000',
+        secondary: '#000',
+        accent: '#fff',
+        particleColor: 'rgba(255, 255, 255, 0.8)',
+        waveColor: 'rgba(255, 255, 255, 0.3)',
+        kanjiColor: 'rgba(255, 255, 255, 0.6)'
+    },
+    decay: {
+        envClass: 'env-decay',
+        primary: '#1c1917',
+        secondary: '#44403c',
+        accent: '#78716c',
+        particleColor: 'rgba(120, 113, 108, 0.8)',
+        waveColor: 'rgba(68, 64, 60, 0.3)',
+        kanjiColor: 'rgba(120, 113, 108, 0.6)'
+    },
+    growth: {
+        envClass: 'env-growth',
+        primary: '#064e3b',
+        secondary: '#166534',
+        accent: '#4ade80',
+        particleColor: 'rgba(74, 222, 128, 0.8)',
+        waveColor: 'rgba(22, 101, 52, 0.3)',
+        kanjiColor: 'rgba(74, 222, 128, 0.6)'
+    },
+    mirror: {
+        envClass: 'env-mirror',
+        primary: '#f1f5f9',
+        secondary: '#94a3b8',
+        accent: '#38bdf8',
+        particleColor: 'rgba(56, 189, 248, 0.8)',
+        waveColor: 'rgba(148, 163, 184, 0.3)',
+        kanjiColor: 'rgba(56, 189, 248, 0.6)'
+    },
+    glass: {
+        envClass: 'env-glass',
+        primary: '#f8fafc',
+        secondary: '#cbd5e1',
+        accent: '#f1f5f9',
+        particleColor: 'rgba(241, 245, 249, 0.8)',
+        waveColor: 'rgba(203, 213, 225, 0.3)',
+        kanjiColor: 'rgba(241, 245, 249, 0.6)'
+    },
+    sound: {
+        envClass: 'env-sound',
+        primary: '#1e1b4b',
+        secondary: '#4338ca',
+        accent: '#c084fc',
+        particleColor: 'rgba(192, 132, 252, 0.8)',
+        waveColor: 'rgba(67, 56, 202, 0.3)',
+        kanjiColor: 'rgba(192, 132, 252, 0.6)'
+    },
+    vibration: {
+        envClass: 'env-vibration',
+        primary: '#171717',
+        secondary: '#404040',
+        accent: '#a3a3a3',
+        particleColor: 'rgba(163, 163, 163, 0.8)',
+        waveColor: 'rgba(64, 64, 64, 0.3)',
+        kanjiColor: 'rgba(163, 163, 163, 0.6)'
+    },
+    magnetism: {
+        envClass: 'env-magnetism',
+        primary: '#1e1b4b',
+        secondary: '#312e81',
+        accent: '#6366f1',
+        particleColor: 'rgba(99, 102, 241, 0.8)',
+        waveColor: 'rgba(49, 46, 129, 0.3)',
+        kanjiColor: 'rgba(99, 102, 241, 0.6)'
+    },
+    radiation: {
+        envClass: 'env-radiation',
+        primary: '#064e3b',
+        secondary: '#14532d',
+        accent: '#bef264',
+        particleColor: 'rgba(190, 242, 100, 0.8)',
+        waveColor: 'rgba(20, 83, 45, 0.3)',
+        kanjiColor: 'rgba(190, 242, 100, 0.6)'
+    },
     cosmic: {
+        envClass: "env-cosmic",
         primary: '#0a0612',
         secondary: '#ec4899',
         accent: '#a855f7',
@@ -283,6 +391,55 @@ function generateKanji(name) {
         'disaster': '災',
         'plague': '疫',
         'rot': '腐',
+        'infinity': '無限',
+        'zero': '無',
+        'decay': '朽',
+        'growth': '生',
+        'mirror': '鏡',
+        'glass': '硝',
+        'vibration': '振',
+        'magnetism': '磁',
+        'radiation': '放',
+        'steel': '鋼',
+        'paper': '紙',
+        'wind': '風',
+        'love': '愛',
+        'hate': '憎',
+        'hope': '望',
+        'despair': '絶望',
+        'memory': '記憶',
+        'dream': '夢',
+        'nightmare': '悪夢',
+        'reality': '現実',
+        'truth': '真実',
+        'lie': '嘘',
+        'curse': '呪',
+        'blessing': '祝',
+        'angel': '天使',
+        'devil': '悪魔',
+        'heaven': '天国',
+        'hell': '地獄',
+        'reaper': '死神',
+        'phantom': '幻影',
+        'ghost': '幽霊',
+        'spirit': '精神',
+        'mind': '心',
+        'soul': '魂',
+        'body': '体',
+        'flesh': '肉',
+        'bone': '骨',
+        'teeth': '歯',
+        'eye': '目',
+        'hand': '手',
+        'arm': '腕',
+        'leg': '脚',
+        'heart': '心臓',
+        'brain': '脳',
+        'blood': '血',
+        'vein': '脈',
+        'cell': '細胞',
+        'atom': '原子',
+        'particle': '粒子',
         'manipulation': '操術',
         'projection': '投射',
         'miracle': '奇跡',
@@ -323,6 +480,55 @@ function generateKanji(name) {
         'nature': '自然',
         'plague': '疫',
         'rot': '腐',
+        'infinity': '無限',
+        'zero': '無',
+        'decay': '朽',
+        'growth': '生',
+        'mirror': '鏡',
+        'glass': '硝',
+        'vibration': '振',
+        'magnetism': '磁',
+        'radiation': '放',
+        'steel': '鋼',
+        'paper': '紙',
+        'wind': '風',
+        'love': '愛',
+        'hate': '憎',
+        'hope': '望',
+        'despair': '絶望',
+        'memory': '記憶',
+        'dream': '夢',
+        'nightmare': '悪夢',
+        'reality': '現実',
+        'truth': '真実',
+        'lie': '嘘',
+        'curse': '呪',
+        'blessing': '祝',
+        'angel': '天使',
+        'devil': '悪魔',
+        'heaven': '天国',
+        'hell': '地獄',
+        'reaper': '死神',
+        'phantom': '幻影',
+        'ghost': '幽霊',
+        'spirit': '精神',
+        'mind': '心',
+        'soul': '魂',
+        'body': '体',
+        'flesh': '肉',
+        'bone': '骨',
+        'teeth': '歯',
+        'eye': '目',
+        'hand': '手',
+        'arm': '腕',
+        'leg': '脚',
+        'heart': '心臓',
+        'brain': '脳',
+        'blood': '血',
+        'vein': '脈',
+        'cell': '細胞',
+        'atom': '原子',
+        'particle': '粒子',
     };
 
     if (!name || name.trim() === "") return "領域展開";
@@ -370,6 +576,11 @@ function startExpansion(name) {
 
     // Screen Shake
     expansionScreen.classList.add('shake-screen');
+    const crack = document.getElementById('screen-crack');
+    if (Math.random() > 0.5) {
+        crack.classList.add('active');
+        setTimeout(() => crack.classList.remove('active'), 1000);
+    }
     setTimeout(() => expansionScreen.classList.remove('shake-screen'), 500);
 
     // Update display
@@ -384,9 +595,20 @@ function startExpansion(name) {
     // Update expansion screen colors
     updateExpansionColors();
 
+    // Set Technique Mark
+    const techMark = document.getElementById('technique-mark');
+    techMark.textContent = displayKanji.textContent[0] || '呪';
+
+    // Veil Effect
+    const veil = document.createElement('div');
+    veil.className = 'veil-closing';
+    document.body.appendChild(veil);
+    setTimeout(() => veil.remove(), 1500);
+
     // Start effects
     startParticles();
     startKanjiRain();
+    startWisps();
 
     // Remove expansion animation class after it completes
     setTimeout(() => {
@@ -397,6 +619,12 @@ function startExpansion(name) {
 // Update expansion screen colors
 function updateExpansionColors() {
     const colors = DOMAIN_TYPES[currentType];
+
+    // Remove old environment classes
+    expansionScreen.className = 'screen active expanding';
+    if (colors.envClass) {
+        expansionScreen.classList.add(colors.envClass);
+    }
 
     // Update symbol rings
     document.querySelectorAll('.symbol-ring').forEach(ring => {
@@ -443,6 +671,13 @@ function stopExpansion() {
         clearInterval(kanjiInterval);
         kanjiInterval = null;
     }
+
+    // Stop wisps
+    if (wispInterval) {
+        clearInterval(wispInterval);
+        wispInterval = null;
+    }
+    document.querySelectorAll('.wisp').forEach(w => w.remove());
 
     // Clear particles
     particles = [];
@@ -578,3 +813,33 @@ expansionScreen.addEventListener('touchend', (e) => {
         stopExpansion();
     }
 });
+
+// Cursed Energy Wisps
+let wispInterval = null;
+function startWisps() {
+    const colors = DOMAIN_TYPES[currentType];
+    wispInterval = setInterval(() => {
+        const wisp = document.createElement('div');
+        wisp.className = 'wisp';
+        wisp.style.left = Math.random() * 100 + '%';
+        wisp.style.top = Math.random() * 100 + '%';
+        wisp.style.setProperty('--accent', colors.accent);
+
+        const size = Math.random() * 150 + 50;
+        wisp.style.width = size + 'px';
+        wisp.style.height = size + 'px';
+
+        expansionScreen.appendChild(wisp);
+
+        const anim = wisp.animate([
+            { transform: 'translate(0, 0) scale(1)', opacity: 0 },
+            { transform: `translate(${(Math.random()-0.5)*100}px, ${(Math.random()-0.5)*100}px) scale(1.5)`, opacity: 0.4 },
+            { transform: `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*200}px) scale(1)`, opacity: 0 }
+        ], {
+            duration: 3000 + Math.random() * 2000,
+            easing: 'ease-in-out'
+        });
+
+        anim.onfinish = () => wisp.remove();
+    }, 500);
+}
