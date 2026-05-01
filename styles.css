@@ -134,7 +134,7 @@ body {
 .main-title .kanji {
     font-size: 4rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background: var(--accent-gradient, linear-gradient(135deg, #a855f7, #ec4899));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -277,7 +277,7 @@ body {
     padding: 20px;
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    background: var(--accent-gradient, linear-gradient(135deg, #7c3aed, #ec4899));
     border: none;
     border-radius: 10px;
     color: white;
@@ -491,7 +491,7 @@ body {
     font-size: 4rem;
     font-weight: 900;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background: var(--accent-gradient, linear-gradient(135deg, #a855f7, #ec4899));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -996,4 +996,115 @@ body {
 @keyframes crackFlash {
     0% { transform: scale(1.2); opacity: 1; }
     100% { transform: scale(1); opacity: 0.3; }
+}
+
+/* Cinematic Animations (20s+) */
+.cinematic-mode .domain-container {
+    animation: cinematicCamera 25s ease-in-out infinite;
+}
+
+@keyframes cinematicCamera {
+    0% { transform: scale(1) rotate(0deg); }
+    10% { transform: scale(1.1) rotate(1deg); }
+    30% { transform: scale(0.9) rotate(-1deg); }
+    50% { transform: scale(1.2) translateY(-20px); }
+    70% { transform: scale(1.1) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.cinematic-mode .symbol-core {
+    animation: coreEnergyPulse 25s ease-in-out infinite, coreGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes coreEnergyPulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    20% { transform: scale(1.5); filter: brightness(2); }
+    40% { transform: scale(1.2); filter: brightness(1.5); }
+    60% { transform: scale(2); filter: brightness(3); }
+    80% { transform: scale(1.3); filter: brightness(1.2); }
+}
+
+/* Domain Clash Effect */
+.domain-clash {
+    animation: clashColors 10s linear infinite;
+}
+
+@keyframes clashColors {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* Technique Overflow */
+.overflowing::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 30%, var(--accent) 150%);
+    pointer-events: none;
+    animation: overflowPulse 5s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes overflowPulse {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+}
+
+/* Persistent Energy Pillars */
+.energy-pillar {
+    position: absolute;
+    bottom: -100px;
+    width: 20px;
+    height: 100vh;
+    background: linear-gradient(to top, var(--accent), transparent);
+    filter: blur(10px);
+    opacity: 0.6;
+    animation: pillarRise 8s linear infinite;
+}
+
+@keyframes pillarRise {
+    0% { transform: translateY(100vh) scaleX(1); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(-120vh) scaleX(0.5); opacity: 0; }
+}
+
+/* Cinematic Phase Transitions */
+.cinematic-phase-2 .domain-container {
+    filter: contrast(1.5) saturate(1.5);
+    animation: cinematicCameraIntense 15s ease-in-out infinite;
+}
+
+@keyframes cinematicCameraIntense {
+    0% { transform: scale(1.2); }
+    50% { transform: scale(1.5) rotate(5deg); }
+    100% { transform: scale(1.2); }
+}
+
+.cinematic-phase-3 .domain-container {
+    filter: invert(1) contrast(2) hue-rotate(180deg);
+    animation: cinematicGlitch 0.5s infinite;
+}
+
+@keyframes cinematicGlitch {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-10px, 5px); }
+    40% { transform: translate(10px, -5px); }
+    60% { transform: translate(-5px, 10px); }
+    80% { transform: translate(5px, -10px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Background Rotation for environments */
+.env-cosmic, .env-void, .env-abyss {
+    animation: bgRotate 60s linear infinite;
+}
+
+@keyframes bgRotate {
+    from { background-position: 0% 0%; }
+    to { background-position: 1000% 1000%; }
 }

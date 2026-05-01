@@ -264,7 +264,7 @@ const DOMAIN_TYPES = {
 };
 
 // State
-let currentType = 'void';
+let selectedTypes = ['void'];
 let particles = [];
 let animationId = null;
 let kanjiInterval = null;
@@ -303,33 +303,50 @@ function resizeCanvas() {
 // Type selection
 typeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        typeButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentType = btn.dataset.type;
-        updateTheme(currentType);
+        const type = btn.dataset.type;
+        if (btn.classList.contains('active')) {
+            if (selectedTypes.length > 1) {
+                btn.classList.remove('active');
+                selectedTypes = selectedTypes.filter(t => t !== type);
+            }
+        } else {
+            btn.classList.add('active');
+            selectedTypes.push(type);
+        }
+        updateTheme();
     });
 });
 
 // Update theme colors
-function updateTheme(type) {
-    const colors = DOMAIN_TYPES[type];
-    document.documentElement.style.setProperty('--primary', colors.primary);
-    document.documentElement.style.setProperty('--secondary', colors.secondary);
-    document.documentElement.style.setProperty('--accent', colors.accent);
+function updateTheme() {
+    if (selectedTypes.length === 0) return;
+
+    const baseColors = DOMAIN_TYPES[selectedTypes[0]];
+    document.documentElement.style.setProperty('--primary', baseColors.primary);
+    document.documentElement.style.setProperty('--secondary', baseColors.secondary);
+
+    const accents = selectedTypes.map(t => DOMAIN_TYPES[t].accent);
+    const accentGradient = accents.length > 1
+        ? `linear-gradient(45deg, ${accents.join(', ')})`
+        : accents[0];
+
+    document.documentElement.style.setProperty('--accent-gradient', accentGradient);
+    document.documentElement.style.setProperty('--accent', accents[0]);
 }
 
 // Example tags
 exampleTags.forEach(tag => {
     tag.addEventListener('click', () => {
         domainNameInput.value = tag.dataset.name;
+        const targetType = tag.dataset.type;
+        selectedTypes = [targetType];
         typeButtons.forEach(btn => {
             btn.classList.remove('active');
-            if (btn.dataset.type === tag.dataset.type) {
+            if (btn.dataset.type === targetType) {
                 btn.classList.add('active');
-                currentType = btn.dataset.type;
-                updateTheme(currentType);
             }
         });
+        updateTheme();
     });
 });
 
@@ -609,26 +626,51 @@ function startExpansion(name) {
     startParticles();
     startKanjiRain();
     startWisps();
+    startPillars();
 
-    // Remove expansion animation class after it completes
+    // Cinematic Sequence
     setTimeout(() => {
         expansionScreen.classList.remove('expanding');
     }, 2000);
+
+    setTimeout(() => {
+        if (expansionScreen.classList.contains('active')) {
+            expansionScreen.classList.add('cinematic-phase-2');
+        }
+    }, 10000);
+
+    setTimeout(() => {
+        if (expansionScreen.classList.contains('active')) {
+            expansionScreen.classList.add('cinematic-phase-3');
+        }
+    }, 20000);
 }
 
 // Update expansion screen colors
 function updateExpansionColors() {
-    const colors = DOMAIN_TYPES[currentType];
+    const primaryType = selectedTypes[0];
+    const colors = DOMAIN_TYPES[primaryType];
 
     // Remove old environment classes
-    expansionScreen.className = 'screen active expanding';
+    expansionScreen.className = 'screen active expanding cinematic-mode';
+
+    // Add primary environment
     if (colors.envClass) {
         expansionScreen.classList.add(colors.envClass);
     }
 
-    // Update symbol rings
-    document.querySelectorAll('.symbol-ring').forEach(ring => {
-        ring.style.borderColor = colors.waveColor;
+    // If multi-select, add clash effect
+    if (selectedTypes.length > 1) {
+        expansionScreen.classList.add('domain-clash');
+        expansionScreen.classList.add('overflowing');
+    }
+
+    // Update symbol rings with combined types
+    const rings = document.querySelectorAll('.symbol-ring');
+    rings.forEach((ring, idx) => {
+        const typeIdx = idx % selectedTypes.length;
+        const ringColor = DOMAIN_TYPES[selectedTypes[typeIdx]].waveColor;
+        ring.style.borderColor = ringColor;
     });
 
     // Update core
@@ -660,6 +702,7 @@ document.addEventListener('keydown', (e) => {
 
 // Stop domain expansion
 function stopExpansion() {
+    stopPillars();
     // Stop particles
     if (animationId) {
         cancelAnimationFrame(animationId);
@@ -684,6 +727,13 @@ function stopExpansion() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     kanjiRain.innerHTML = '';
 
+    // Reset cinematic phases
+    expansionScreen.classList.remove('cinematic-phase-2');
+    expansionScreen.classList.remove('cinematic-phase-3');
+    expansionScreen.classList.remove('cinematic-mode');
+    expansionScreen.classList.remove('domain-clash');
+    expansionScreen.classList.remove('overflowing');
+
     // Switch screens
     expansionScreen.classList.remove('active');
     inputScreen.classList.add('active');
@@ -692,6 +742,7 @@ function stopExpansion() {
 // Particle system
 class Particle {
     constructor() {
+        this.type = selectedTypes[Math.floor(Math.random() * selectedTypes.length)];
         this.reset();
     }
 
@@ -717,7 +768,7 @@ class Particle {
     }
 
     draw() {
-        const colors = DOMAIN_TYPES[currentType];
+        const colors = DOMAIN_TYPES[this.type];
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = colors.particleColor.replace('0.8', (this.opacity * this.life).toString());
@@ -736,11 +787,24 @@ function startParticles() {
 
 // Animate particles
 function animateParticles() {
-    const colors = DOMAIN_TYPES[currentType];
+    const colors = DOMAIN_TYPES[selectedTypes[0]];
     ctx.fillStyle = `rgba(0, 0, 0, 0.15)`;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    const isPhase2 = expansionScreen.classList.contains('cinematic-phase-2');
+    const isPhase3 = expansionScreen.classList.contains('cinematic-phase-3');
+
     particles.forEach(particle => {
+        if (isPhase2) {
+            particle.speedX *= 1.05;
+            particle.speedY *= 1.05;
+            particle.size *= 1.01;
+            if (particle.size > 10) particle.size = 10;
+        }
+        if (isPhase3) {
+            particle.x += (Math.random() - 0.5) * 20;
+            particle.y += (Math.random() - 0.5) * 20;
+        }
         particle.update();
         particle.draw();
         particle.connections = 0;
@@ -775,7 +839,7 @@ function animateParticles() {
 
 // Kanji rain
 function startKanjiRain() {
-    const colors = DOMAIN_TYPES[currentType];
+    const colors = DOMAIN_TYPES[selectedTypes[0]];
     const MAX_KANJI = 40;
 
     kanjiInterval = setInterval(() => {
@@ -817,7 +881,7 @@ expansionScreen.addEventListener('touchend', (e) => {
 // Cursed Energy Wisps
 let wispInterval = null;
 function startWisps() {
-    const colors = DOMAIN_TYPES[currentType];
+    const colors = DOMAIN_TYPES[selectedTypes[0]];
     wispInterval = setInterval(() => {
         const wisp = document.createElement('div');
         wisp.className = 'wisp';
@@ -842,4 +906,28 @@ function startWisps() {
 
         anim.onfinish = () => wisp.remove();
     }, 500);
+}
+
+// Energy Pillars
+let pillarInterval = null;
+function startPillars() {
+    pillarInterval = setInterval(() => {
+        if (document.querySelectorAll('.energy-pillar').length >= 10) return;
+        const pillar = document.createElement('div');
+        pillar.className = 'energy-pillar';
+        pillar.style.left = Math.random() * 100 + '%';
+        const type = selectedTypes[Math.floor(Math.random() * selectedTypes.length)];
+        pillar.style.setProperty('--accent', DOMAIN_TYPES[type].accent);
+        pillar.style.animationDuration = (5 + Math.random() * 5) + 's';
+        expansionScreen.appendChild(pillar);
+        setTimeout(() => pillar.remove(), 10000);
+    }, 2000);
+}
+
+function stopPillars() {
+    if (pillarInterval) {
+        clearInterval(pillarInterval);
+        pillarInterval = null;
+    }
+    document.querySelectorAll('.energy-pillar').forEach(p => p.remove());
 }
